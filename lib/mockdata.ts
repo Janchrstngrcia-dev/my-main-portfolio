@@ -15,6 +15,11 @@ import {
   FirebaseIcon,
   ExpressJsIcon,
   MySQLIcon,
+  PHPIcon,
+  PHPMyAdminIcon,
+  HostingerIcon,
+  ReactNativeIcon,
+  ExpoIcon,
 } from "@/app/components/tech-icons";
 import { Server, Database, Layers, Terminal, Cloud, Palette } from "lucide-react"
 
@@ -24,49 +29,43 @@ export const projects = [
     description: "A simple calculator application for personal use",
     image: "./calculator.png",
     tags: ["NextJS", "Tailwind CSS"],
+    tech: ["NextJsIcon", "TailwindIcon"],
   },
   {
     title: "Fowl of Fury",
     description: "A web and mobile responsive with multiple features",
     image: "./fof-project.png",
     tags: ["NextJS", "Tailwind CSS", "NodeJS", "Firebase"],
-  },
-  {
-    title: "Coffee Design Enhancements",
-    description: "Enhanced user experience for a coffee e-commerce platform",
-    image: "./caffeine.jpg",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    tech: ["NextJsIcon", "TailwindIcon", "NodeJsIcon", "FirebaseIcon"],
   },
   {
     title: "Unemployment Rate Analysis",
     description: "Data visualization tool for analyzing quezon unemployment rates",
     image: "./PESO.jpg",
     tags: ["NextJS", "Node.js", "MongoDB"],
+    tech: ["NextJsIcon", "NodeJsIcon", "MongoDBIcon"],
   },
   {
     title: "Loreta's Cafe Management",
     description: "Enhanced some features for a coffee e-commerce platform",
     image: "./COFFEE.jpg",
     tags: ["C#", "SQLite", "WinUI"],
-  },
-  {
-    title: "E-commerce personalization",
-    description: "Personalized shopping experience for an e-commerce platform",
-    image: "./ecomms.jpg",
-    tags: ["NextJS", "NodeJS", "Tailwind CSS"],
+    tech: ["MySQLIcon"], // Using MySQL icon as placeholder for SQLite
   },
   {
     title: "Pet-care Management",
     description: "Pet-care management system for a pet-care business",
     image: "./pet-care.jpg",
     tags: ["NextJS", "NodeJS", "Tailwind CSS"],
+    tech: ["NextJsIcon", "NodeJsIcon", "TailwindIcon"],
   },
-  {
-    title: "Coron Palawan Overview",
-    description: "Web application for tourism in Coron Palawan",
-    image: "./Coron.jpg",
-    tags: ["NextJS", "NodeJS", "Tailwind CSS"],
-  },
+  // {
+  //   title: "Web and Mobile App for Cargo Services",
+  //   description: "A web and mobile app for a cargo services company",
+  //   image: "./Janfrans.jpg",
+  //   tags: ["PHP", "React-Native", "PhpMyAdmin"],
+  //   tech: ["PHPIcon", "ReactIcon", "PHPMyAdminIcon"],
+  // },
 ];
 
 interface Certificate {
@@ -130,6 +129,7 @@ export const skillCategories = [
       { name: "Next.js", icon: NextJsIcon },
       { name: "TypeScript", icon: TypeScriptIcon },
       { name: "Tailwind CSS", icon: TailwindIcon },
+      { name: "React-Native", icon: ReactNativeIcon },
       { name: "HTML5", icon: HTML5Icon },
       { name: "CSS3", icon: CSS3Icon },
       { name: "JavaScript", icon: JavaScriptIcon },
@@ -138,10 +138,11 @@ export const skillCategories = [
   {
     category: "Backend",
     skills: [
+      { name: "PHP", icon: PHPIcon },
       { name: "Node.js", icon: NodeJsIcon },
       { name: "Express", icon: ExpressJsIcon },
       { name: "MongoDB", icon: MongoDBIcon },
-      { name: "MySQL", icon: MySQLIcon },
+      { name: "PHPMyAdmin", icon: MySQLIcon },
       { name: "Supabase", icon: SupabaseIcon },
     ],
   },
@@ -153,7 +154,8 @@ export const skillCategories = [
       { name: "AWS", icon: AWSIcon },
       { name: "Vercel", icon: VercelIcon },
       { name: "Firebase", icon: FirebaseIcon },
+      { name: "Hostinger", icon: HostingerIcon },
+      { name: "Expo Go", icon: ExpoIcon },
     ],
   },
 ]
-
