@@ -27,10 +27,18 @@ export default function AboutSection() {
               className="text-lg text-blue-200/80 mb-6"
             >
               <p className="pb-8">
-                I’m a Full-Stack Web Developer with two years of experience helping clients build responsive, efficient, and user-friendly web and mobile applications. I work across the full development stack using HTML, CSS3, JavaScript, TypeScript, React.js, React-native, Next.js, and Tailwind CSS for the front end, and Node.js, PHP, Express.js for the back end also MongoDB and PhpMyAdmin sql for database management.
+                I'm a Full-Stack Web Developer who builds responsive, efficient,
+                and user-friendly web and mobile applications. I work across the
+                entire development stack — from modern frontends using React.js,
+                Next.js, TypeScript, and Tailwind CSS, to solid backends with
+                Node.js, PHP, and Express.js, supported by MongoDB and SQL
+                databases.
               </p>
               <p>
-                I specialize in creating scalable, maintainable solutions that blend clean code with strong functionality and design. As a freelancer, I value clear communication, on-time delivery, and long-term client relationships. I&apos;m always eager to take on new challenges and bring ideas to life through practical and reliable web development.
+                I specialize in delivering scalable, maintainable solutions that
+                combine clean code with great design. As a freelancer, I'm
+                committed to clear communication, on-time delivery, and building
+                long-term client relationships that make a real difference.
               </p>
             </motion.div>
 

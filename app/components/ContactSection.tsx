@@ -41,25 +41,25 @@ const ContactSection = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <motion.a
                   whileHover={{ scale: 1.05 }}
-                  href="mailto:john@example.com"
+                  href="mailto:janchrstn.dev@gmail.com"
                   className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-blue-950/50 transition-colors"
                 >
                   <Mail className="w-8 h-8 text-blue-400" />
                   <span className="font-medium text-blue-100">Email</span>
                   <span className="text-sm text-blue-300">
-                    jan_garcia06@yahoo.com
+                    janchrstn.dev@gmail.com
                   </span>
                 </motion.a>
                 <motion.a
                   whileHover={{ scale: 1.05 }}
-                  href="https://github.com/Jcdevs999"
+                  href="https://github.com/Janchrstngrcia-dev"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-blue-950/50 transition-colors"
                 >
                   <Github className="w-8 h-8 text-blue-400" />
                   <span className="font-medium text-blue-100">GitHub</span>
-                  <span className="text-sm text-blue-300">@jcdevs999</span>
+                  <span className="text-sm text-blue-300">Janchrstngrcia-dev</span>
                 </motion.a>
                 <motion.a
                   whileHover={{ scale: 1.05 }}

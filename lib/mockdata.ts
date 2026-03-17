@@ -21,7 +21,14 @@ import {
   ReactNativeIcon,
   ExpoIcon,
 } from "@/app/components/tech-icons";
-import { Server, Database, Layers, Terminal, Cloud, Palette } from "lucide-react"
+import {
+  Server,
+  Database,
+  Layers,
+  Terminal,
+  Cloud,
+  Palette,
+} from "lucide-react";
 
 export const projects = [
   {
@@ -40,7 +47,8 @@ export const projects = [
   },
   {
     title: "Unemployment Rate Analysis",
-    description: "Data visualization tool for analyzing quezon unemployment rates",
+    description:
+      "Data visualization tool for analyzing quezon unemployment rates",
     image: "./PESO.jpg",
     tags: ["NextJS", "Node.js", "MongoDB"],
     tech: ["NextJsIcon", "NodeJsIcon", "MongoDBIcon"],
@@ -50,22 +58,22 @@ export const projects = [
     description: "Enhanced some features for a coffee e-commerce platform",
     image: "./COFFEE.jpg",
     tags: ["C#", "SQLite", "WinUI"],
-    tech: ["MySQLIcon"], // Using MySQL icon as placeholder for SQLite
+    tech: ["MySQLIcon"],
   },
   {
-    title: "Pet-care Management",
-    description: "Pet-care management system for a pet-care business",
-    image: "./pet-care.jpg",
+    title: "Web and Mobile App for Cargo Services",
+    description: "A web and mobile application for a cargo services company",
+    image: "./ink-tattoo.png",
     tags: ["NextJS", "NodeJS", "Tailwind CSS"],
     tech: ["NextJsIcon", "NodeJsIcon", "TailwindIcon"],
   },
-  // {
-  //   title: "Web and Mobile App for Cargo Services",
-  //   description: "A web and mobile app for a cargo services company",
-  //   image: "./Janfrans.jpg",
-  //   tags: ["PHP", "React-Native", "PhpMyAdmin"],
-  //   tech: ["PHPIcon", "ReactIcon", "PHPMyAdminIcon"],
-  // },
+  {
+    title: "Web and Mobile App for Cargo Services",
+    description: "A web and mobile application for a cargo services company",
+    image: "./janfrans-image.jpg",
+    tags: ["PHP", "React-Native", "PhpMyAdmin"],
+    tech: ["PHPIcon", "ReactIcon", "PHPMyAdminIcon"],
+  },
 ];
 
 interface Certificate {
@@ -158,4 +166,4 @@ export const skillCategories = [
       { name: "Expo Go", icon: ExpoIcon },
     ],
   },
-]
+];
