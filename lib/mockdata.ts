@@ -40,7 +40,7 @@ export const projects = [
   },
   {
     title: "Fowl of Fury",
-    description: "A web and mobile responsive with multiple features",
+    description: "An e-commerce platform for buying and selling poultry products using game diamonds as currency",
     image: "./fof-project.png",
     tags: ["NextJS", "Tailwind CSS", "NodeJS", "Firebase"],
     tech: ["NextJsIcon", "TailwindIcon", "NodeJsIcon", "FirebaseIcon"],
@@ -48,27 +48,27 @@ export const projects = [
   {
     title: "Unemployment Rate Analysis",
     description:
-      "Data visualization tool for analyzing quezon unemployment rates",
+      "A data visualization project analyzing unemployment rates using React and Chart.js",
     image: "./PESO.jpg",
     tags: ["NextJS", "Node.js", "MongoDB"],
     tech: ["NextJsIcon", "NodeJsIcon", "MongoDBIcon"],
   },
   {
     title: "Loreta's Cafe Management",
-    description: "Enhanced some features for a coffee e-commerce platform",
+    description: "A desktop application for managing cafe operations, including inventory and sales",
     image: "./COFFEE.jpg",
     tags: ["C#", "SQLite", "WinUI"],
     tech: ["MySQLIcon"],
   },
   {
-    title: "Web and Mobile App for Cargo Services",
-    description: "A web and mobile application for a cargo services company",
+    title: "Ink Tattoo Studio",
+    description: "A web application for a tattoo studio showcasing their portfolio and services",
     image: "./ink-tattoo.png",
     tags: ["NextJS", "NodeJS", "Tailwind CSS"],
     tech: ["NextJsIcon", "NodeJsIcon", "TailwindIcon"],
   },
   {
-    title: "Web and Mobile App for Cargo Services",
+    title: "Janfrans Cargo Services",
     description: "A web and mobile application for a cargo services company",
     image: "./janfrans-image.jpg",
     tags: ["PHP", "React-Native", "PhpMyAdmin"],
