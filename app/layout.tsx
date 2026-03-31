@@ -1,6 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Poppins, Fira_Code } from 'next/font/google';
+import { ThemeProvider } from './providers/ThemeProvider';
+import Navigation from './components/Navigation';
 
 const poppins = Poppins({ weight: ['300', '400', '500', '600', '700'], subsets: ['latin'], variable: '--font-poppins' });
 const firaCode = Fira_Code({ weight: ['400', '500'], subsets: ['latin'], variable: '--font-fira-code' });
@@ -18,7 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${poppins.variable} ${firaCode.variable}`} suppressHydrationWarning>
-      <body className="bg-background text-foreground">{children}</body>
+      <body className="bg-background text-foreground">
+        <ThemeProvider>
+          <Navigation />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

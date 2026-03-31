@@ -1,16 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Navigation from "../components/Navigation";
 import { cert } from "@/lib/mockdata";
 import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function CertificatesPage() {
   const [shapes, setShapes] = useState<{ size: number; x: number; y: number; duration: number; delay: number }[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    setShapes(Array.from({ length: 15 }).map(() => ({
+    // Reduce number of shapes for better performance
+    setShapes(Array.from({ length: 3 }).map(() => ({
       size: Math.random() * 20 + 10,
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -46,7 +47,7 @@ export default function CertificatesPage() {
       transition: { duration: 0.6 },
     },
     hover: {
-      scale: 1.05,
+      scale: 1.02,
       transition: { duration: 0.3 },
     },
   };
@@ -60,12 +61,12 @@ export default function CertificatesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background overflow-hidden">
-      <div className="fixed inset-0 -z-10">
+    <div className="min-h-screen bg-background">
+      <div className="fixed inset-0 -z-10 pointer-events-none">
         {shapes.map((shape, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-accent/10"
+            className="absolute rounded-full bg-accent/10 will-change-transform"
             style={{
               width: shape.size,
               height: shape.size,
@@ -87,125 +88,132 @@ export default function CertificatesPage() {
         ))}
       </div>
 
-      <Navigation />
-
-      <main className="pt-40 pb-20">
-        <div className="container mx-auto px-4">
+      <main className="pt-20 md:pt-32 pb-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="max-w-6xl mx-auto"
           >
-            <motion.div variants={itemVariants} className="mb-16">
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-4 text-balance">
-                Certificates
+            <motion.div variants={itemVariants} className="mb-12 md:mb-16">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
+                Certifications
               </h1>
-              <p className="text-lg text-muted-foreground">
-                Professional credentials and training certifications
+              <p className="text-base sm:text-lg text-muted-foreground">
+                Professional certifications and achievements
               </p>
               <div className="h-1 w-24 bg-gradient-to-r from-accent to-accent/50 rounded-full mt-4"></div>
             </motion.div>
 
-            {/* Featured Certificate Viewer */}
-            <motion.div variants={itemVariants} className="mb-16">
-              <div className="bg-secondary/50 backdrop-blur border border-secondary rounded-lg p-8 overflow-hidden">
-                <div className="grid md:grid-cols-3 gap-8 items-center">
+            {cert.length > 0 && (
+              <motion.div variants={itemVariants} className="mb-16 md:mb-20">
+                <div className="relative">
                   <motion.div
-                    key={currentIndex}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.4 }}
-                    className="md:col-span-1 h-64 bg-background rounded-lg border border-secondary/50 flex items-center justify-center overflow-hidden"
+                    variants={certVariants}
+                    whileHover="hover"
+                    className="card overflow-hidden"
                   >
-                    <div className="text-center text-muted-foreground">
-                      <div className="text-6xl mb-2">📜</div>
-                      <p className="text-sm">Certificate Preview</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                      <div className="bg-secondary/50 rounded-lg h-48 sm:h-64 md:h-72 flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-4xl md:text-6xl mb-4">🏆</div>
+                          <p className="text-muted-foreground text-sm md:text-base">Certificate Image</p>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col justify-between py-4">
+                        <div>
+                          <h3 className="text-2xl md:text-3xl font-bold text-accent mb-2">
+                            {cert[currentIndex].title}
+                          </h3>
+                          <p className="text-sm md:text-base text-muted-foreground mb-4">
+                            {cert[currentIndex].issuer}
+                          </p>
+                          <p className="text-xs md:text-sm text-muted-foreground mb-6">
+                            {cert[currentIndex].date}
+                          </p>
+                          <p className="text-foreground text-sm md:text-base leading-relaxed">
+                            {cert[currentIndex].description}
+                          </p>
+                        </div>
+
+                        <div className="flex items-center justify-between mt-6">
+                          <span className="text-xs md:text-sm text-muted-foreground">
+                            {currentIndex + 1} / {cert.length}
+                          </span>
+                          <div className="flex gap-2">
+                            <motion.button
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.95 }}
+                              onClick={handlePrevious}
+                              className="p-2 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
+                              aria-label="Previous certificate"
+                            >
+                              <ChevronLeft size={20} className="text-accent" />
+                            </motion.button>
+                            <motion.button
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.95 }}
+                              onClick={handleNext}
+                              className="p-2 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
+                              aria-label="Next certificate"
+                            >
+                              <ChevronRight size={20} className="text-accent" />
+                            </motion.button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </motion.div>
 
-                  <div className="md:col-span-2">
-                    <motion.div
-                      key={`details-${currentIndex}`}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4 }}
-                    >
-                      <h3 className="text-2xl font-bold text-foreground mb-3">
-                        {cert[currentIndex].title}
-                      </h3>
-                      <p className="text-muted-foreground mb-6">
-                        {cert[currentIndex].description}
-                      </p>
-
-                      <div className="flex items-center gap-4">
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={handlePrevious}
-                          className="px-6 py-2 bg-secondary border border-secondary hover:border-accent/50 rounded-lg text-foreground transition-all duration-300"
-                        >
-                          ← Previous
-                        </motion.button>
-
-                        <span className="text-sm text-muted-foreground">
-                          {currentIndex + 1} of {cert.length}
-                        </span>
-
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={handleNext}
-                          className="px-6 py-2 bg-accent text-background rounded-lg font-semibold hover:bg-accent/90 transition-colors"
-                        >
-                          Next →
-                        </motion.button>
-                      </div>
-                    </motion.div>
+                  <div className="flex gap-2 mt-6 justify-center flex-wrap">
+                    {cert.map((_, index) => (
+                      <motion.button
+                        key={index}
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => setCurrentIndex(index)}
+                        className={`w-2 h-2 rounded-full transition-colors ${
+                          index === currentIndex ? "bg-accent" : "bg-secondary"
+                        }`}
+                        aria-label={`Go to certificate ${index + 1}`}
+                      />
+                    ))}
                   </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            )}
 
-            {/* Certificate Grid */}
-            <motion.div variants={itemVariants} className="mb-8">
-              <h2 className="text-2xl font-bold text-foreground mb-6">All Certificates</h2>
+            <motion.div variants={itemVariants} className="mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 md:mb-8">
+                All Certifications
+              </h2>
               <motion.div
                 variants={containerVariants}
-                className="grid md:grid-cols-2 gap-6"
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
               >
                 {cert.map((certificate, index) => (
                   <motion.div
-                    key={certificate.id}
+                    key={index}
                     variants={certVariants}
                     whileHover="hover"
                     onClick={() => setCurrentIndex(index)}
-                    className={`cursor-pointer p-6 rounded-lg border transition-all duration-300 ${
-                      currentIndex === index
-                        ? "bg-accent/20 border-accent"
-                        : "bg-secondary/50 border-secondary hover:border-accent/30"
-                    }`}
+                    className="card cursor-pointer"
                   >
-                    <div className="flex items-start gap-4">
-                      <div className="text-3xl flex-shrink-0">📜</div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-bold text-foreground truncate">
+                    <div className="flex gap-4">
+                      <div className="text-3xl md:text-4xl flex-shrink-0">🎓</div>
+                      <div className="flex-grow">
+                        <h3 className="text-lg md:text-xl font-bold text-accent mb-2">
                           {certificate.title}
                         </h3>
-                        <p className="text-sm text-muted-foreground truncate">
-                          {certificate.description}
+                        <p className="text-muted-foreground text-xs md:text-sm mb-2">
+                          {certificate.issuer}
+                        </p>
+                        <p className="text-muted-foreground text-xs md:text-sm">
+                          {certificate.date}
                         </p>
                       </div>
-                      {currentIndex === index && (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="text-accent text-xl flex-shrink-0"
-                        >
-                          ✓
-                        </motion.div>
-                      )}
                     </div>
                   </motion.div>
                 ))}

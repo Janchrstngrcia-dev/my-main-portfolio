@@ -3,11 +3,13 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Moon, Sun } from "lucide-react";
+import { useTheme } from "@/app/providers/ThemeProvider";
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { theme, toggleTheme } = useTheme();
 
   const navItems = [
     { label: "Home", href: "/" },
@@ -44,7 +46,7 @@ const Navigation = () => {
         }`}
       >
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-4">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -62,7 +64,7 @@ const Navigation = () => {
                       href={item.href}
                       className={`px-4 py-2 rounded-lg transition-all duration-300 ${
                         active
-                          ? "bg-accent text-foreground font-semibold"
+                          ? "bg-accent text-accent-foreground font-semibold"
                           : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                       }`}
                     >
@@ -73,12 +75,25 @@ const Navigation = () => {
               })}
             </div>
 
-            <button
-              aria-expanded={isMobileMenuOpen ? "true" : "false"}
-              aria-label="Toggle mobile menu"
-              className="md:hidden text-accent"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
+            <div className="flex items-center gap-3">
+              <button
+                onClick={toggleTheme}
+                aria-label="Toggle dark/light mode"
+                className="p-2 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
+              >
+                {theme === 'dark' ? (
+                  <Sun size={20} className="text-accent" />
+                ) : (
+                  <Moon size={20} className="text-accent" />
+                )}
+              </button>
+
+              <button
+                aria-expanded={isMobileMenuOpen ? "true" : "false"}
+                aria-label="Toggle mobile menu"
+                className="md:hidden text-accent p-2 hover:bg-secondary/50 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -137,7 +152,7 @@ const Navigation = () => {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="fixed top-24 left-0 right-0 z-40 bg-gradient-to-r from-background/80 to-background/40 backdrop-blur-sm border-b border-secondary"
+          className="hidden md:block fixed top-20 left-0 right-0 z-40 bg-background/80 backdrop-blur-sm border-b border-secondary"
         >
           <div className="container mx-auto px-4 py-3">
             <div className="flex items-center gap-2 text-sm">
