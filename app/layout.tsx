@@ -1,12 +1,14 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { Poppins, Fira_Code } from 'next/font/google';
 
-const poppins = Poppins({ weight: '300', subsets: ['latin'] });
+const poppins = Poppins({ weight: ['300', '400', '500', '600', '700'], subsets: ['latin'], variable: '--font-poppins' });
+const firaCode = Fira_Code({ weight: ['400', '500'], subsets: ['latin'], variable: '--font-fira-code' });
 
 export const metadata: Metadata = {
-  title: 'Jan Christian Portfolio',
-  description: 'Portfolio of Jan Christian, showcasing skills and projects',
+  title: 'Jan Christian | Full-Stack Developer',
+  description: 'Portfolio of Jan Christian, a full-stack developer showcasing projects, skills, and experience',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
 };
 
 export default function RootLayout({
@@ -15,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={poppins.className}>{children}</body>
+    <html lang="en" className={`${poppins.variable} ${firaCode.variable}`} suppressHydrationWarning>
+      <body className="bg-background text-foreground">{children}</body>
     </html>
   );
 }
