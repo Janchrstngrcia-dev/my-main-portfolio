@@ -78,7 +78,7 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      <main className="pt-20 md:pt-32 pb-20">
+      <main className="pt-32 md:pt-40 pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}

@@ -71,7 +71,7 @@ export default function Home() {
         ))}
       </div>
 
-      <main className="flex-1 flex items-center justify-center px-4 py-8 md:py-0">
+      <main className="flex-1 flex items-center justify-center px-4 py-8 md:py-0 pt-28 md:pt-32">
         <motion.div
           variants={containerVariants}
           initial="hidden"

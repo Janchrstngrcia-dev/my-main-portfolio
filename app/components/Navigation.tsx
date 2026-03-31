@@ -1,15 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ChevronRight, Moon, Sun } from "lucide-react";
-import { useTheme } from "@/app/providers/ThemeProvider";
+import { ThemeContext } from "@/app/providers/ThemeProvider";
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { theme, toggleTheme } = useTheme();
+  const themeContext = useContext(ThemeContext);
 
   const navItems = [
     { label: "Home", href: "/" },
@@ -35,7 +35,6 @@ const Navigation = () => {
   };
 
   const breadcrumbs = getBreadcrumbs();
-  const pageTitle = breadcrumbs.length > 0 ? breadcrumbs[breadcrumbs.length - 1].label : "Home";
 
   return (
     <>
@@ -76,17 +75,19 @@ const Navigation = () => {
             </div>
 
             <div className="flex items-center gap-3">
-              <button
-                onClick={toggleTheme}
-                aria-label="Toggle dark/light mode"
-                className="p-2 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
-              >
-                {theme === 'dark' ? (
-                  <Sun size={20} className="text-accent" />
-                ) : (
-                  <Moon size={20} className="text-accent" />
-                )}
-              </button>
+              {themeContext && (
+                <button
+                  onClick={themeContext.toggleTheme}
+                  aria-label="Toggle dark/light mode"
+                  className="p-2 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
+                >
+                  {themeContext.theme === 'dark' ? (
+                    <Sun size={20} className="text-accent" />
+                  ) : (
+                    <Moon size={20} className="text-accent" />
+                  )}
+                </button>
+              )}
 
               <button
                 aria-expanded={isMobileMenuOpen ? "true" : "false"}
@@ -95,27 +96,27 @@ const Navigation = () => {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
                 <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                {isMobileMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  {isMobileMenuOpen ? (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
                 </svg>
               </button>
             </div>
