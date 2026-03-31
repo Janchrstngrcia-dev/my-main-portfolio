@@ -94,7 +94,7 @@ const Navigation = () => {
                 className="md:hidden text-accent p-2 hover:bg-secondary/50 rounded-lg transition-colors"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
-              <svg
+                <svg
                 className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
@@ -116,8 +116,9 @@ const Navigation = () => {
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                 )}
-              </svg>
-            </button>
+                </svg>
+              </button>
+            </div>
           </div>
 
           {isMobileMenuOpen && (
