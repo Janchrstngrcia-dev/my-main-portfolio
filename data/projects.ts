@@ -1,0 +1,96 @@
+export const PROJECTS = [
+  {
+    title: 'Janfrans Cargo Services – Logistics Platform',
+    description:
+      'End-to-end logistics platform with real-time tracking, route optimization, and automated billing.',
+    tags: ['PHP', 'React-Native', 'PHPMyAdmin', 'Hostinger', 'Git'],
+    category: 'Fullstack',
+    github: 'https://github.com',
+    live: 'https://example.com',
+    stars: 0,
+    forks: 0,
+    featured: true,
+    gradient: 'from-cyan-500/15 via-blue-500/10 to-transparent',
+    accent: 'text-cyan-400',
+    accentBg: 'bg-cyan-500/10',
+  },
+  {
+    title: 'Ink Tattoo Studio',
+    description:
+      'A web application for a tattoo studio showcasing their portfolio and services',
+    tags: ['Next.js', 'Node.js', 'GraphQL', 'MongoDB'],
+    category: 'Fullstack',
+    github: 'https://github.com',
+    live: 'https://example.com',
+    stars: 0,
+    forks: 0,
+    featured: true,
+    gradient: 'from-violet-500/15 via-purple-500/10 to-transparent',
+    accent: 'text-violet-400',
+    accentBg: 'bg-violet-500/10',
+  },
+  {
+    title: "Loreta's Cafe Management",
+    description:
+      'A web application for managing a coffee shop, including menu management, order processing, and customer reviews.',
+    tags: ['C#', 'ASP.NET', 'SQLite', 'Entity Framework'],
+    category: 'Fullstack',
+    github: 'https://github.com',
+    live: 'https://example.com',
+    stars: 0,
+    forks: 0,
+    featured: true,
+    gradient: 'from-emerald-500/15 via-teal-500/10 to-transparent',
+    accent: 'text-emerald-400',
+    accentBg: 'bg-emerald-500/10',
+  },
+  {
+    title: 'Unemployment Rate Analysis',
+    description:
+      'A data visualization project analyzing unemployment rates using React and Chart.js',
+    tags: ['Next.js', 'Chart.js', 'Python', 'MongoDB', 'TypeScript'],
+    category: 'Fullstack',
+    github: 'https://github.com',
+    live: 'https://example.com',
+    stars: 0,
+    forks: 0,
+    featured: false,
+    gradient: 'from-pink-500/15 via-rose-500/10 to-transparent',
+    accent: 'text-pink-400',
+    accentBg: 'bg-pink-500/10',
+  },
+  {
+    title: 'Fowl of Fury – E-commerce Platform',
+    description:
+      'An e-commerce platform for buying and selling poultry products using game diamonds as currency',
+    tags: ['Next.js', 'Node.js', 'MongoDB', 'Tailwind CSS', 'Firebase'],
+    category: 'Fullstack',
+    github: 'https://github.com',
+    live: 'https://example.com',
+    stars: 0,
+    forks: 0,
+    featured: false,
+    gradient: 'from-orange-500/15 via-amber-500/10 to-transparent',
+    accent: 'text-orange-400',
+    accentBg: 'bg-orange-500/10',
+  },
+  {
+    title: 'Personal Calculator',
+    description:
+      'A simple calculator application for personal use',
+    tags: ['Next.js', 'Tailwind CSS', 'TypeScript'],
+    category: 'Frontend',
+    github: 'https://github.com',
+    live: 'https://example.com',
+    stars: 0,
+    forks: 0,
+    featured: false,
+    gradient: 'from-sky-500/15 via-blue-500/10 to-transparent',
+    accent: 'text-sky-400',
+    accentBg: 'bg-sky-500/10',
+  },
+]
+
+export const CATEGORIES = ['All', 'Fullstack', 'Frontend', 'Backend', 'Mobile']
+
+export type Project = (typeof PROJECTS)[number]
