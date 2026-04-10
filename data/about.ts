@@ -14,7 +14,7 @@ export const EXPERIENCE = [
     period: '2023 – Present',
     desc: 'Building high-performance MVPs and scalable web applications for startups and small businesses. Focus on clean code, thoughtful design, and rapid iteration.',
     tags: ['React', 'Node.js', 'MongoDB', 'PHP', 'Tailwind CSS', 'React-Native'],
-    current: false,
+    current: true,
   },
   {
     role: 'Fullstack Developer Intern',
