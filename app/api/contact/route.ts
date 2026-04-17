@@ -3,7 +3,6 @@ import { Resend } from 'resend'
 
 export async function POST(request: Request) {
   try {
-    // 1. Check if the API Key exists in your environment
     if (!process.env.RESEND_API_KEY) {
       console.error("CRITICAL ERROR: RESEND_API_KEY is not defined in your environment variables.")
       return NextResponse.json(
@@ -12,13 +11,11 @@ export async function POST(request: Request) {
       )
     }
 
-    // Initialize Resend inside the handler to ensure the key is captured
     const resend = new Resend(process.env.RESEND_API_KEY)
 
     const body = await request.json()
     const { name, email, subject, message } = body
 
-    // 2. Basic validation
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
         { error: 'All fields are required.' },
@@ -34,10 +31,8 @@ export async function POST(request: Request) {
       )
     }
 
-    // Fallback email (Your verified Resend email)
     const ownerEmail = process.env.CONTACT_EMAIL ?? 'janchrstn.dev@gmail.com'
 
-    // 3. Send notification to YOU
     const { error: resendError } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: ownerEmail,

@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Jan Christian — Fullstack Developer',
   description:
-    'Portfolio of Jan Christian, a senior fullstack developer and UI/UX designer specializing in building high-performance MVPs and scalable web applications.',
+    'Portfolio of Jan Christian, a fullstack developer specializing in building high-performance MVPs and scalable web and mobile applications.',
   keywords: ['fullstack developer', 'Next.js', 'React', 'TypeScript', 'portfolio'],
   authors: [{ name: 'Jan Christian' }],
   openGraph: {
