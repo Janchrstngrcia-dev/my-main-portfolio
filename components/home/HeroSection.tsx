@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, Download, Github, Linkedin, Twitter } from 'lucide-react'
@@ -10,6 +11,20 @@ import { ROLES } from '@/data/home'
 
 export function HeroSection() {
   const role = useTypingText(ROLES)
+  const [showScrollCue, setShowScrollCue] = useState(true)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setShowScrollCue(false)
+      } else {
+        setShowScrollCue(true)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <PageTransition>
@@ -128,9 +143,9 @@ export function HeroSection() {
         {/* Scroll cue */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
+          animate={{ opacity: showScrollCue ? 1 : 0 }}
+          transition={{ delay: 1.5, duration: 0.3 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 pointer-events-none"
         >
           <span className="text-xs text-muted-foreground">scroll down</span>
           <motion.div
