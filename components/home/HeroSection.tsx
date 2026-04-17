@@ -6,7 +6,6 @@ import { ArrowRight, Download, Github, Linkedin, Twitter } from 'lucide-react'
 import { PageTransition, fadeInUp } from '@/components/page-transition'
 import { useTypingText } from '@/hooks/useTypingText'
 import { Terminal } from '@/components/home/Terminal'
-import { AnimatedLanguages } from '@/components/home/AnimatedLanguages'
 import { ROLES } from '@/data/home'
 
 export function HeroSection() {
@@ -14,20 +13,7 @@ export function HeroSection() {
 
   return (
     <PageTransition>
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden pt-16">
-        {/* Animated programming languages background */}
-        <AnimatedLanguages />
-        
-        {/* Background grid */}
-        <div
-          className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
-          style={{
-            backgroundImage:
-              'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-          aria-hidden
-        />
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         {/* Cyan glow blob */}
         <div
           className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10 dark:opacity-15 blur-3xl pointer-events-none"
