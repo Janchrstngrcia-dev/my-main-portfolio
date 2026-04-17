@@ -17,8 +17,17 @@ export function ProjectCard({ project: p, index: i }: ProjectCardProps) {
       variants={fadeInUp}
       custom={i}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="group flex flex-col gap-4 p-6 rounded-2xl border border-border bg-card hover:border-primary/30 transition-colors"
+      className={`group relative flex flex-col gap-4 p-6 rounded-2xl border transition-colors ${
+        p.featured
+          ? 'border-primary/40 bg-gradient-to-br from-primary/5 to-transparent hover:border-primary/60 hover:shadow-lg hover:shadow-primary/10'
+          : 'border-border bg-card hover:border-primary/30'
+      }`}
     >
+      {p.featured && (
+        <div className="absolute -top-3 -right-3 px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full">
+          Featured
+        </div>
+      )}
       <div className="flex items-start justify-between">
         <span className={`px-2 py-0.5 text-xs rounded-md font-medium ${p.accentBg} ${p.accent}`}>
           {p.category}
