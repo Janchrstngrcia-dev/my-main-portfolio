@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Download, Github, Linkedin, Twitter } from 'lucide-react'
 import { PageTransition, fadeInUp } from '@/components/page-transition'
 import { useTypingText } from '@/hooks/useTypingText'
+import { Terminal } from '@/components/home/Terminal'
 import { ROLES } from '@/data/home'
 
 export function HeroSection() {
@@ -30,94 +31,108 @@ export function HeroSection() {
           aria-hidden
         />
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          {/* Available badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium mb-6"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            Available for new projects
-          </motion.div>
-
-          {/* Name */}
-          <motion.h1
-            variants={fadeInUp}
-            custom={1}
-            className="font-heading font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-7xl tracking-tight mb-4 leading-none text-balance"
-          >
-            Hi, I&apos;m{' '}
-            <span className="text-gradient-cyan">Jan Christian</span>
-          </motion.h1>
-
-          {/* Typing role */}
-          <motion.div
-            variants={fadeInUp}
-            custom={2}
-            className="h-10 flex items-center justify-center mb-6"
-          >
-            <span className="font-mono text-lg sm:text-xl text-muted-foreground">
-              {'> '}
-              <span className="text-foreground">{role}</span>
-              <span className="animate-pulse">|</span>
-            </span>
-          </motion.div>
-
-          {/* Tagline */}
-          <motion.p
-            variants={fadeInUp}
-            custom={3}
-            className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto leading-relaxed mb-10 text-balance"
-          >
-            I design and build fast, accessible, and beautiful web experiences — from idea to
-            production.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            variants={fadeInUp}
-            custom={4}
-            className="flex flex-wrap items-center justify-center gap-4"
-          >
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:opacity-90 transition-all hover:scale-105 active:scale-95"
-            >
-              View My Work <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href="/resume.pdf"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border bg-transparent text-muted-foreground font-medium hover:text-foreground transition-all hover:scale-105 active:scale-95"
-            >
-              <Download className="w-4 h-4" /> Resume
-            </a>
-          </motion.div>
-
-          {/* Social icons */}
-          <motion.div
-            variants={fadeInUp}
-            custom={5}
-            className="flex items-center justify-center gap-4 mt-10"
-          >
-            {[
-              { icon: Github, href: 'https://github.com', label: 'GitHub' },
-              { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-              { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-            ].map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="w-10 h-10 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
+        <div className="relative z-10 w-full max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left side - Text content */}
+            <div className="text-center lg:text-left">
+              {/* Available badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium mb-6"
               >
-                <Icon className="w-4 h-4" />
-              </a>
-            ))}
-          </motion.div>
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                Available for new projects
+              </motion.div>
+
+              {/* Name */}
+              <motion.h1
+                variants={fadeInUp}
+                custom={1}
+                className="font-heading font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-5xl tracking-tight mb-4 leading-none text-balance"
+              >
+                Hi, I&apos;m{' '}
+                <span className="text-gradient-cyan">Jan Christian</span>
+              </motion.h1>
+
+              {/* Typing role */}
+              <motion.div
+                variants={fadeInUp}
+                custom={2}
+                className="h-10 flex items-center justify-start lg:justify-start mb-6"
+              >
+                <span className="font-mono text-lg sm:text-xl text-muted-foreground">
+                  {'> '}
+                  <span className="text-foreground">{role}</span>
+                  <span className="animate-pulse">|</span>
+                </span>
+              </motion.div>
+
+              {/* Tagline */}
+              <motion.p
+                variants={fadeInUp}
+                custom={3}
+                className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-10 text-balance"
+              >
+                I design and build fast, accessible, and beautiful web experiences — from idea to
+                production.
+              </motion.p>
+
+              {/* CTAs */}
+              <motion.div
+                variants={fadeInUp}
+                custom={4}
+                className="flex flex-wrap items-center gap-4"
+              >
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:opacity-90 transition-all hover:scale-105 active:scale-95"
+                >
+                  View My Work <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href="/resume.pdf"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border bg-transparent text-muted-foreground font-medium hover:text-foreground transition-all hover:scale-105 active:scale-95"
+                >
+                  <Download className="w-4 h-4" /> Resume
+                </a>
+              </motion.div>
+
+              {/* Social icons */}
+              <motion.div
+                variants={fadeInUp}
+                custom={5}
+                className="flex items-center gap-4 mt-10"
+              >
+                {[
+                  { icon: Github, href: 'https://github.com', label: 'GitHub' },
+                  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+                  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+                ].map(({ icon: Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-10 h-10 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Right side - Terminal */}
+            <motion.div
+              variants={fadeInUp}
+              custom={3}
+              className="hidden lg:block h-96"
+            >
+              <Terminal />
+            </motion.div>
+          </div>
         </div>
 
         {/* Scroll cue */}
