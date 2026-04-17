@@ -9,9 +9,10 @@ interface CommandOutput {
   type: 'command' | 'output' | 'error'
 }
 
-const COMMANDS: Record<string, string[]> = {
+const COMMANDS: Record<string, string | string[]> = {
   help: [
     'Available commands:',
+    '  hi         - Start a conversation',
     '  fortune    - Get a random fortune',
     '  joke       - Get a random joke',
     '  compliment - Get a random compliment',
@@ -67,9 +68,10 @@ const COMMANDS: Record<string, string[]> = {
     'Email: hello@example.com',
     'Twitter: @yourhandle',
   ],
+  hi: 'conversation',
 }
 
-const ALL_COMMANDS = Object.keys(COMMANDS)
+const ALL_COMMANDS = Object.keys(COMMANDS).filter(cmd => cmd !== 'hi')
 
 export function Terminal() {
   const [history, setHistory] = useState<CommandOutput[]>([])
@@ -114,7 +116,7 @@ export function Terminal() {
     setHistoryIndex(-1)
 
     // Add command to output
-    const newHistory: CommandOutput[] = [
+    let newHistory: CommandOutput[] = [
       ...history,
       { command: trimmed, output: '', type: 'command' },
     ]
@@ -125,10 +127,39 @@ export function Terminal() {
       return
     }
 
-    if (trimmed in COMMANDS) {
+    if (trimmed === 'hi') {
+      const conversations = [
+        'Hey there! How\'s it going?',
+        'Hi! Nice to meet you!',
+        'Hello! Welcome to my terminal!',
+        'Hey! What brings you here?',
+        'Howdy! 👋',
+      ]
+      const randomGreeting = conversations[Math.floor(Math.random() * conversations.length)]
+      newHistory.push({ command: '', output: randomGreeting, type: 'output' })
+      
+      // Add a follow-up message after a short delay
+      setTimeout(() => {
+        const followUps = [
+          'Want to know more? Try: whoami, skills, or projects',
+          'Feel free to explore! Type help for commands',
+          'You can type commands like fortune, joke, or compliment for fun!',
+          'Try typing one of the available commands above!',
+        ]
+        const randomFollowUp = followUps[Math.floor(Math.random() * followUps.length)]
+        setHistory(prev => [
+          ...prev,
+          { command: '', output: randomFollowUp, type: 'output' }
+        ])
+      }, 800)
+    } else if (trimmed in COMMANDS) {
       const outputs = COMMANDS[trimmed as keyof typeof COMMANDS]
-      const randomOutput = outputs[Math.floor(Math.random() * outputs.length)]
-      newHistory.push({ command: '', output: randomOutput, type: 'output' })
+      if (typeof outputs === 'string') {
+        newHistory.push({ command: '', output: outputs, type: 'output' })
+      } else {
+        const randomOutput = outputs[Math.floor(Math.random() * outputs.length)]
+        newHistory.push({ command: '', output: randomOutput, type: 'output' })
+      }
     } else {
       newHistory.push({
         command: '',

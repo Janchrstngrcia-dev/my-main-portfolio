@@ -6,6 +6,7 @@ import { ArrowRight, Download, Github, Linkedin, Twitter } from 'lucide-react'
 import { PageTransition, fadeInUp } from '@/components/page-transition'
 import { useTypingText } from '@/hooks/useTypingText'
 import { Terminal } from '@/components/home/Terminal'
+import { AnimatedLanguages } from '@/components/home/AnimatedLanguages'
 import { ROLES } from '@/data/home'
 
 export function HeroSection() {
@@ -14,6 +15,9 @@ export function HeroSection() {
   return (
     <PageTransition>
       <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden pt-16">
+        {/* Animated programming languages background */}
+        <AnimatedLanguages />
+        
         {/* Background grid */}
         <div
           className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
