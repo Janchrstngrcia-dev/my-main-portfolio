@@ -4,8 +4,26 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, MapPin, Briefcase, Heart, Download } from 'lucide-react'
+import { useState, useEffect } from 'react'
 
 export function ProfileCard() {
+  const [isDark, setIsDark] = useState(false)
+
+  useEffect(() => {
+    // Check if html has dark class
+    const isDarkMode = document.documentElement.classList.contains('dark')
+    setIsDark(isDarkMode)
+
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      const darkMode = document.documentElement.classList.contains('dark')
+      setIsDark(darkMode)
+    })
+
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div className="grid lg:grid-cols-[320px_1fr] gap-12 items-start">
       {/* Avatar */}
@@ -15,7 +33,9 @@ export function ProfileCard() {
         transition={{ duration: 0.5 }}
         className="space-y-6"
       >
-        <div className="relative rounded-2xl overflow-hidden aspect-square border border-border">
+        <div className={`relative rounded-2xl overflow-hidden aspect-square border border-border transition-colors ${
+          isDark ? 'bg-slate-200' : 'bg-slate-900'
+        }`}>
           <Image
             src="/suite.jpg"
             alt="Jan Christian — Fullstack Developer"
