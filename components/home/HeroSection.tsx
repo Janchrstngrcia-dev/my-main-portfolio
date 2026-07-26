@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, Download, Github, Linkedin, Twitter } from 'lucide-react'
-import { PageTransition, fadeInUp } from '@/components/page-transition'
+import { fadeInUp } from '@/components/page-transition'
 import { useTypingText } from '@/hooks/useTypingText'
 import { Terminal } from '@/components/home/Terminal'
 import { ROLES } from '@/data/home'
@@ -27,7 +27,6 @@ export function HeroSection() {
   }, [])
 
   return (
-    <PageTransition>
       <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         {/* Cyan glow blob */}
         <div
@@ -155,6 +154,5 @@ export function HeroSection() {
           />
         </motion.div>
       </section>
-    </PageTransition>
   )
 }
