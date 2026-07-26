@@ -18,7 +18,7 @@ export default function AboutSection() {
               viewport={{ once: true }}
               className="text-3xl md:text-4xl font-bold mb-6 text-blue-100"
             >
-              Professional Overview
+              Problem Solver & Quick Learner
             </motion.h2>
             <motion.div
               initial={{ y: 20, opacity: 0 }}
@@ -27,18 +27,10 @@ export default function AboutSection() {
               className="text-lg text-blue-200/80 mb-6"
             >
               <p className="pb-8">
-                I'm a Full-Stack Web Developer who builds responsive, efficient,
-                and user-friendly web and mobile applications. I work across the
-                entire development stack — from modern frontends using React.js,
-                Next.js, TypeScript, and Tailwind CSS, to solid backends with
-                Node.js, PHP, and Express.js, supported by MongoDB and SQL
-                databases.
+                I'm a fullstack engineer who thrives on turning complex challenges into elegant solutions. I've built real-time logistics platforms, e-commerce systems, and internal tools that solved tangible business problems. My strength is rapidly learning new technologies, understanding business context, and shipping production-ready products that users love.
               </p>
               <p>
-                I specialize in delivering scalable, maintainable solutions that
-                combine clean code with great design. As a freelancer, I'm
-                committed to clear communication, on-time delivery, and building
-                long-term client relationships that make a real difference.
+                Whether optimizing database queries for performance, designing scalable architectures, or bridging design and engineering, I focus on what matters: delivering measurable value. I'm adaptable, detail-oriented, and passionate about clean, maintainable code that scales with your business.
               </p>
             </motion.div>
 

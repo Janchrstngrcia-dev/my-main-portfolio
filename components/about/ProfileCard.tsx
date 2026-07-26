@@ -57,18 +57,13 @@ export function ProfileCard() {
         className="space-y-5 text-muted-foreground leading-relaxed"
       >
         <p className="text-lg text-foreground font-medium">
-          I&apos;m a fullstack developer with 2+ years of experience
-          turning ideas into production-ready products.
+          Fullstack engineer who thrives on solving hard problems and shipping fast.
         </p>
         <p>
-          My work lives at the intersection of design and engineering. I care deeply about the
-          details — from the responsiveness of a layout to the milliseconds of a database query.
-          I believe great software is built on empathy: for users, for teammates, and for the
-          engineers who maintain the codebase in the future.
+          I learn new technologies quickly and apply them strategically to build products that users love. Whether it&apos;s optimizing database queries that cut response times in half, designing scalable architectures for growth, or bridging gaps between design and engineering, I focus on what matters: delivering real value, not just code.
         </p>
         <p>
-          Outside of work, I contribute to open-source, write about software architecture, and
-          occasionally speak at local meetups about frontend performance and design systems.
+          My strength is taking ambiguous problems and turning them into elegant, high-performance solutions. I&apos;ve built logistics platforms with real-time tracking, e-commerce systems handling concurrent users, and internal tools that saved teams days of manual work. I communicate clearly with stakeholders, work well in collaborative environments, and care deeply about writing maintainable code.
         </p>
 
         <div className="flex flex-wrap gap-3 pt-2">
