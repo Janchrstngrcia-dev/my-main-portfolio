@@ -73,12 +73,12 @@ export function ProjectCard({ project: p, index: i }: ProjectCardProps) {
       </div>
 
       <div className="flex items-center gap-3 text-xs text-muted-foreground pt-2 border-t border-border">
-        <span className="flex items-center gap-1">
+        {/* <span className="flex items-center gap-1">
           <Star className="w-3 h-3 text-yellow-400" /> {p.stars}
         </span>
         <span className="flex items-center gap-1">
           <GitFork className="w-3 h-3" /> {p.forks}
-        </span>
+        </span> */}
       </div>
     </motion.article>
   )

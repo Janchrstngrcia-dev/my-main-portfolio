@@ -42,15 +42,15 @@ export function FeaturedProjectCard({ project: p, index: i }: FeaturedProjectCar
 
       <div className="flex items-center justify-between pt-2 border-t border-border/60">
         <div className="flex items-center gap-3 text-xs text-muted-foreground">
-          <span className="flex items-center gap-1">
+          {/* <span className="flex items-center gap-1">
             <Star className="w-3 h-3 text-yellow-400" /> {p.stars}
           </span>
           <span className="flex items-center gap-1">
             <GitFork className="w-3 h-3" /> {p.forks}
-          </span>
+          </span> */}
         </div>
         <div className="flex items-center gap-2">
-          <a
+          {/* <a
             href={p.github}
             target="_blank"
             rel="noopener noreferrer"
@@ -58,8 +58,8 @@ export function FeaturedProjectCard({ project: p, index: i }: FeaturedProjectCar
             className="w-8 h-8 rounded-lg border border-border/60 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-border transition-colors"
           >
             <Github className="w-3.5 h-3.5" />
-          </a>
-          <a
+          </a> */}
+          {/* <a
             href={p.live}
             target="_blank"
             rel="noopener noreferrer"
@@ -67,7 +67,7 @@ export function FeaturedProjectCard({ project: p, index: i }: FeaturedProjectCar
             className={`w-8 h-8 rounded-lg flex items-center justify-center ${p.accentBg} ${p.accent} hover:opacity-80 transition-opacity`}
           >
             <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+          </a> */}
         </div>
       </div>
     </motion.article>
